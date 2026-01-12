@@ -1,0 +1,44 @@
+/* Import font Merriweather từ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
+
+:root {
+  --font-main: 'Merriweather', serif;
+  --gold-color: #ffd700;
+  --red-color: #ff4d4d;
+}
+
+/* Áp dụng toàn cục */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: var(--font-main);
+  background-color: #000;
+  color: #e0e0e0;
+  line-height: 1.6; /* Merriweather trông đẹp hơn với line-height rộng */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Định nghĩa cho các tiêu đề lớn */
+h1, h2, h3, .big-text, .hero-years, .logo-text {
+  font-family: var(--font-main);
+  font-weight: 900; /* Sử dụng trọng số cao nhất để tạo độ uy nghiêm */
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+/* Các câu trích dẫn và văn bản phụ */
+.hero-quote, .quote, .topic-sub {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-style: italic;
+}
+
+button, a {
+  font-family: var(--font-main);
+  font-weight: 700;
+  text-transform: uppercase;
+}

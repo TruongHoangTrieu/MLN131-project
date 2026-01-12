@@ -1,0 +1,121 @@
+.history-navbar {
+  width: 100%;
+  /* THAY ĐỔI: Mặc định là trong suốt */
+  background-color: transparent; 
+  height: 90px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* THÊM: Chuyển động mượt khi đổi màu và chiều cao */
+  transition: all 0.4s ease-in-out; 
+}
+.history-navbar.scrolled {
+  background-color: #000; /* Chuyển sang màu đen */
+  height: 75px; /* Có thể thu nhỏ nhẹ chiều cao cho hiện đại */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Thêm bóng đổ để tách biệt với nội dung */
+}
+.nav-container {
+  max-width: 1400px;
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --- LOGO STYLE --- */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-vn-circle {
+  width: 55px;
+  height: 55px;
+  background-color: #b22222; /* Màu đỏ đô */
+  border: 3px solid #ffd700; /* Viền vàng gold */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.vn-text {
+  color: #ffd700;
+  font-weight: bold;
+  font-size: 20px;
+  
+}
+
+.brand-titles {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand-year {
+  color: #ffd700;
+  font-size: 24px;
+  font-weight: 700;
+  
+}
+
+.brand-sub {
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+/* --- MENU LINKS --- */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 25px; /* Khoảng cách giữa các mục */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #d1d1d1; /* Màu trắng xám */
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+}
+
+/* Hiệu ứng khi hover: chữ chuyển vàng và sáng nhẹ */
+.nav-menu li a:hover {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+/* Đường kẻ trang trí phía dưới */
+.nav-underline {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
+  position: absolute;
+  bottom: 0;
+  opacity: 0; /* Mặc định ẩn */
+  transition: opacity 0.4s ease;
+}
+.history-navbar.scrolled .nav-underline {
+  opacity: 1; /* Hiện lại khi đã cuộn */
+}
+/* Tương thích cho màn hình nhỏ */
+@media (max-width: 1100px) {
+  .nav-menu {
+    gap: 15px;
+  }
+  .nav-menu li a {
+    font-size: 12px;
+  }
+}

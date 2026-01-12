@@ -1,0 +1,170 @@
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Căn giữa theo chiều dọc */
+  overflow: hidden;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Background & Video */
+.hero-bg-wrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(25%) brightness(65%) contrast(100%);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  /* Lớp phủ dốc giúp chữ nổi bật ở tâm */
+  /* background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%); */
+}
+
+/* Content Container */
+.hero-container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 1100px;
+  padding: 0 20px;
+  /* Đẩy nhẹ lên trên một chút để bù trừ thị giác cho Navbar */
+  transform: translateY(-20px); 
+  animation: heroFadeIn 1.8s ease-out forwards;
+}
+
+.hero-star {
+  font-size: 55px;
+  color: var(--gold-color, #ffd700);
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+  animation: starPulse 2.5s infinite ease-in-out;
+}
+
+.hero-sub-top {
+  font-size: 13px;
+  letter-spacing: 5px; /* Giãn cách chữ rộng tạo sự trang trọng */
+  color: var(--gold-color, #ffd700);
+  font-weight: 500;
+  margin-bottom: 25px;
+  opacity: 0.85;
+}
+
+.hero-years {
+  font-size: clamp(4.5rem, 14vw, 9rem); /* Tăng nhẹ kích cỡ cho Merriweather */
+  font-weight: 900;
+  margin: 0;
+  line-height: 0.9; /* Giảm line-height để hai số năm sát lại gần nhau hơn */
+  text-shadow: 0 10px 40px rgba(0,0,0,1);
+}
+
+.hero-years .dash {
+  color: var(--red-color, #ff0000);
+  padding: 0 15px;
+}
+
+.hero-main-title {
+  font-size: clamp(2rem, 5.5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 6px;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+/* Quote Box */
+.hero-quote-box {
+  margin-top: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.quote-line {
+  width: 50px;
+  height: 2px;
+  background-color: var(--red-color, #ff0000);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.hero-quote {
+  font-style: italic;
+  font-size: 1.3rem;
+  font-weight: 400;
+  opacity: 0.75;
+  max-width: 700px;
+  line-height: 1.5;
+}
+
+/* Scroll Indicator - Đưa về đáy màn hình */
+.scroll-indicator {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeInContent 1s ease forwards 2s; /* Hiện sau cùng */
+}
+
+.scroll-text {
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.scroll-arrow {
+  animation: bounceArrow 2s infinite;
+}
+
+.hero-star, .hero-sub-top, .hero-years, .hero-main-title, .hero-quote-box, .scroll-indicator {
+  /* Thêm transition để mượt mà khi cuộn */
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  will-change: opacity; /* Tối ưu hóa hiệu năng render */
+}
+
+/* Thêm hiệu ứng đẩy nhẹ lên khi biến mất để tạo cảm giác cinematic */
+
+
+/* Đảm bảo nội dung luôn hiển thị đẹp với phông Merriweather đã cài đặt */
+.hero-years {
+  font-family: var(--font-main); /* Sử dụng biến từ global.css */
+  font-weight: 900;
+  /* ... */
+}
+/* Animations */
+@keyframes heroFadeIn {
+  from { opacity: 0; transform: translateY(10px); filter: blur(10px); }
+  to { opacity: 1; transform: translateY(-20px); filter: blur(0); }
+}
+
+@keyframes fadeInContent {
+  to { opacity: 1; }
+}
+
+@keyframes starPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3)); }
+  50% { transform: scale(1.1); filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.7)); }
+}
+
+@keyframes bounceArrow {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  60% { transform: translateY(-4px); }
+}

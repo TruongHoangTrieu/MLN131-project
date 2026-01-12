@@ -1,0 +1,216 @@
+/* --- Container Chính --- */
+.knowledge-section {
+  padding: 120px 20px;
+  background: radial-gradient(circle at center, #1a0505 0%, #050505 100%);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-texture-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.knowledge-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Header & Typography --- */
+.section-header {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.section-badge {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  color: #ffd700;
+  font-size: 20px;
+  letter-spacing: 4px;
+  margin-bottom: 25px;
+  background: rgba(255, 215, 0, 0.05);
+  border-radius: 20px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.4;
+  font-weight: 900;
+  margin-bottom: 25px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.highlight-gold {
+  color: #ffd700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.section-subtitle {
+  font-style: italic;
+  opacity: 0.6;
+  font-size: 17px;
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* --- Accordion List --- */
+.accordion-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 100px;
+}
+
+.accordion-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+}
+
+.accordion-item:hover,
+.accordion-item.active {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.accordion-item.active {
+  background: rgba(178, 34, 34, 0.05);
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+.accordion-header {
+  padding: 24px 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.icon-box {
+  color: #ffd700;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.item-title {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.dropdown-arrow {
+  color: #ffd700;
+  transition: transform 0.4s ease;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+}
+
+.content-inner {
+  padding: 0 35px 30px 100px;
+  color: #b0b0b0;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* --- Milestones Bar --- */
+.knowledge-milestones {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 60px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.milestone-item {
+  text-align: center;
+  flex: 1;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: all 0.5s ease;
+}
+
+.milestone-item:hover,
+.milestone-item.active {
+  opacity: 1;
+  transform: translateY(-8px);
+}
+
+.ms-year {
+  display: block;
+  font-size: 48px;
+  font-weight: 900;
+  color: #e5e7eb;
+  margin-bottom: 8px;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.milestone-item:hover .ms-year,
+.milestone-item.active .ms-year {
+  color: #ffd700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.ms-desc {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #e5e7eb;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.milestone-item:hover .ms-desc,
+.milestone-item.active .ms-desc {
+  color: #fff;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .content-inner { padding: 0 30px 30px; }
+  .ms-year { font-size: 36px; }
+}
+
+@media (max-width: 600px) {
+  .knowledge-milestones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}

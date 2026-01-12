@@ -1,0 +1,242 @@
+.history-timeline {
+  padding: 100px 20px;
+  background: #050505;
+  background: radial-gradient(circle at center, #1a0505 0%, #050505 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.section-texture-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.15;
+  pointer-events: none;
+}
+.timeline-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header */
+.timeline-header {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.timeline-badge {
+  display: inline-block;
+  padding: 5px 20px;
+  border: 1px solid #ffd700;
+  color: #ffd700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.timeline-main-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.timeline-quote {
+  font-style: italic;
+  opacity: 0.6;
+  line-height: 1.6;
+}
+
+/* Timeline Body & Line */
+.timeline-body {
+  position: relative;
+  padding: 50px 0;
+}
+
+.vertical-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px; /* Độ dầy của line */
+  background: linear-gradient(
+    to bottom, 
+    transparent, 
+    rgba(255, 215, 0, 0.4) 15%, /* Vàng gold mờ */
+    rgba(255, 215, 0, 0.4) 85%, 
+    transparent
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+  /* Hiệu ứng phát sáng nhẹ cho line */
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+}
+
+/* Timeline Item */
+.timeline-item {
+  display: flex;
+  justify-content: flex-end; /* Mặc định bên trái */
+  padding-right: 50%;
+  position: relative;
+  margin-bottom: 80px;
+}
+
+.timeline-item.right {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: 50%;
+}
+
+/* Nút tròn trên trục */
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 45px; /* Căn chỉnh theo chiều cao của Card */
+  width: 14px;
+  height: 14px;
+  background: #050505; /* Trùng màu nền để tạo khoảng rỗng bên trong */
+  border: 2px solid #ffd700;
+  transform: translateX(-50%) rotate(45deg); /* Xoay 45 độ tạo hình thoi */
+  z-index: 3;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 51px; /* Căn giữa theo hình thoi */
+  width: 50px; /* Độ dài đường nối ngang */
+  height: 1px;
+  background: rgba(255, 215, 0, 0.3);
+  z-index: 2;
+}
+/* Căn lề cho đường nối ngang bên trái và bên phải */
+.timeline-item.left::after {
+  right: 50%;
+}
+
+.timeline-item.right::after {
+  left: 50%;
+}
+/* Card */
+.timeline-card {
+  width: 90%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 35px;
+  position: relative;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.timeline-card:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.timeline-item.left .timeline-card {
+  margin-right: 50px;
+}
+.timeline-item.right .timeline-card {
+  margin-left: 50px;
+}
+
+.card-year {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 15px;
+  color: #aaa;
+}
+
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.card-desc {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.card-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) brightness(0.8);
+  transition: 0.5s ease;
+}
+
+.timeline-card:hover .card-image {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.05);
+}
+
+.view-more-btn {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 11px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s;
+}
+
+.view-more-btn:hover {
+  color: #ffd700;
+}
+
+/* Text năm in chìm phía sau */
+.bg-year-text {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 6rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .vertical-line {
+    left: 30px;
+  }
+  .timeline-dot {
+    left: 30px;
+  }
+
+  .timeline-item,
+  .timeline-item.right {
+    justify-content: flex-start;
+    padding-left: 70px;
+    padding-right: 0;
+  }
+
+  .timeline-item.left .timeline-card,
+  .timeline-item.right .timeline-card {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .timeline-main-title {
+    font-size: 2.5rem;
+  }
+}

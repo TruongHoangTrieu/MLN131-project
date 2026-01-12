@@ -1,0 +1,241 @@
+.guideline-section {
+  padding: 120px 20px;
+  background: radial-gradient(circle at center, #140505 0%, #020202 100%);
+  color: #fff;
+  overflow: hidden;
+}
+
+/* --- Header --- */
+.guideline-header {
+  text-align: center;
+  margin-bottom: 80px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffd700;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  padding: 6px 20px;
+  margin-bottom: 25px;
+  border-radius: 50px;
+}
+
+.header-main-title {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.highlight-gold { color: #ffd700; }
+
+.header-divider { margin: 25px 0; opacity: 0.6; }
+
+.header-subtitle {
+  font-size: 15px;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+/* --- Grid System --- */
+.guideline-grid {
+  display: grid;
+  /* Lưới 3 cột cho màn hình lớn */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- 3D FLIP CARD MECHANISM --- */
+
+/* 1. Container chính: Tạo không gian 3D và định hình vuông */
+.flip-card-container {
+  background-color: transparent;
+  aspect-ratio: 1 / 1; /* BẮT BUỘC: Tạo hình vuông */
+  perspective: 1000px; /* Tạo chiều sâu 3D */
+  cursor: pointer;
+}
+
+/* 2. Lớp bên trong: Thực hiện việc xoay */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng lật có độ nảy nhẹ */
+  transform-style: preserve-3d; /* Giữ không gian 3D cho các mặt con */
+}
+
+/* Kích hoạt xoay khi di chuột vào container */
+.flip-card-container:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* 3. Định dạng chung cho 2 mặt */
+.card-front, .card-back {
+  position: absolute;
+  inset: 0; /* Chiếm toàn bộ không gian container */
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Ẩn mặt sau khi đang nhìn mặt trước */
+  backface-visibility: hidden;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* --- STYLING MẶT TRƯỚC --- */
+.card-front {
+  border-top: 3px solid var(--card-theme);
+}
+
+.card-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.card-id {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--card-theme);
+  opacity: 0.5;
+}
+
+.card-icon {
+  color: var(--card-theme);
+  filter: drop-shadow(0 0 10px var(--card-theme));
+}
+
+.front-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.quote-box {
+  flex-grow: 1; /* Đẩy phần này giãn ra để căn bố cục */
+  border-left: 2px solid var(--card-theme);
+  padding-left: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+}
+
+.quote-box p {
+  font-style: italic;
+  font-size: 18px;
+  color: #ffd700;
+  line-height: 1.4;
+}
+
+.short-desc {
+  font-size: 17px;
+  color: #999;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.hover-hint {
+  font-size: 15px;
+  color: var(--card-theme);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* --- STYLING MẶT SAU (Đã xoay 180 độ) --- */
+.card-back {
+  transform: rotateY(180deg); /* Xoay sẵn 180 độ */
+  background: linear-gradient(145deg, rgba(20, 20, 20, 0.95), rgba(var(--card-theme), 0.1));
+  border-color: var(--card-theme);
+  justify-content: center; /* Căn giữa nội dung theo chiều dọc */
+}
+
+.back-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--card-theme);
+  margin-bottom: 25px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.details-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.details-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 15px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #ccc;
+}
+
+.list-icon {
+  color: var(--card-theme);
+  min-width: 16px;
+  margin-top: 3px;
+}
+
+.back-footer {
+  margin-top: auto;
+  text-align: center;
+  font-size: 15px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Responsive Cân đối màn hình --- */
+@media (max-width: 1024px) {
+  /* Tablet: 2 cột */
+  .guideline-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+    gap: 25px;
+  }
+  .card-front, .card-back { padding: 25px; }
+}
+
+@media (max-width: 600px) {
+  /* Mobile: 1 cột */
+  .guideline-grid {
+    grid-template-columns: repeat(1, 1fr);
+    max-width: 400px;
+    gap: 30px;
+  }
+  /* Trên mobile, có thể cần bấm vào để lật thay vì hover */
+  .flip-card-container:active .flip-card-inner {
+      transform: rotateY(180deg);
+  }
+  .header-subtitle { display: none; } /* Ẩn hướng dẫn hover trên mobile */
+}

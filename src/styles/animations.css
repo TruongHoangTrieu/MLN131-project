@@ -1,0 +1,20 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-animate-1 {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.text-animate-2 {
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
