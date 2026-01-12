@@ -55,10 +55,7 @@ const LoadingPage = ({ onFinished }) => {
       {/* Lớp phủ tối để làm nổi bật chữ trên nền video */}
       <div className="video-overlay"></div>
       {/* 4 Góc viền */}
-      <div className="corner top-left"></div>
-      <div className="corner top-right"></div>
-      <div className="corner bottom-left"></div>
-      <div className="corner bottom-right"></div>
+
 
       <div className="dust-overlay"></div>
 
