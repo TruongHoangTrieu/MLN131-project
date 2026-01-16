@@ -1,10 +1,17 @@
+:root {
+  --gold-color: #ffd700;
+  --red-color: #ff0000;
+}
+
 .hero-section {
   position: relative;
   height: 100vh;
+  /* Sử dụng lvh/svh để fix lỗi layout trên trình duyệt mobile */
+  height: 100dvh;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; /* Căn giữa theo chiều dọc */
+  align-items: center;
   overflow: hidden;
   background-color: #000;
   color: #fff;
@@ -21,14 +28,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: sepia(25%) brightness(65%) contrast(100%);
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  /* Lớp phủ dốc giúp chữ nổi bật ở tâm */
-  /* background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%); */
+  filter: sepia(15%) brightness(80%) contrast(110%);
 }
 
 /* Content Container */
@@ -36,54 +36,39 @@
   position: relative;
   z-index: 10;
   text-align: center;
-  max-width: 1100px;
-  padding: 0 20px;
-  /* Đẩy nhẹ lên trên một chút để bù trừ thị giác cho Navbar */
-  transform: translateY(-20px); 
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 24px;
+  box-sizing: border-box;
+  transform: translateY(-20px);
   animation: heroFadeIn 1.8s ease-out forwards;
 }
 
+/* Star Icon */
 .hero-star {
-  font-size: 55px;
-  color: var(--gold-color, #ffd700);
-  margin-bottom: 15px;
+  /* Tự động scale từ 35px đến 55px */
+  font-size: clamp(55px, 5vw, 155px);
+  color: var(--gold-color);
+  margin-bottom: clamp(10px, 2vw, 20px);
   filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
   animation: starPulse 2.5s infinite ease-in-out;
 }
 
-.hero-sub-top {
-  font-size: 13px;
-  letter-spacing: 5px; /* Giãn cách chữ rộng tạo sự trang trọng */
-  color: var(--gold-color, #ffd700);
-  font-weight: 500;
-  margin-bottom: 25px;
-  opacity: 0.85;
-}
-
+/* Main Title */
 .hero-years {
-  font-size: clamp(4.5rem, 14vw, 9rem); /* Tăng nhẹ kích cỡ cho Merriweather */
+  font-family: var(--font-main);
+  /* Tự động scale từ 24px đến 52px tùy kích thước màn hình */
+  font-size: clamp(1.5rem, 4.5vw, 3.25rem);
   font-weight: 900;
   margin: 0;
-  line-height: 0.9; /* Giảm line-height để hai số năm sát lại gần nhau hơn */
-  text-shadow: 0 10px 40px rgba(0,0,0,1);
-}
-
-.hero-years .dash {
-  color: var(--red-color, #ff0000);
-  padding: 0 15px;
-}
-
-.hero-main-title {
-  font-size: clamp(2rem, 5.5vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: 6px;
-  margin-top: 20px;
+  line-height: 1.2;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Quote Box */
 .hero-quote-box {
-  margin-top: 45px;
+  margin-top: clamp(20px, 4vw, 40px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -91,80 +76,112 @@
 }
 
 .quote-line {
-  width: 50px;
+  width: clamp(40px, 8vw, 60px);
   height: 2px;
-  background-color: var(--red-color, #ff0000);
+  background-color: var(--red-color);
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
 }
 
 .hero-quote {
   font-style: italic;
-  font-size: 1.3rem;
+  /* Scale từ 0.9rem đến 1.3rem */
+  font-size: 30px;
   font-weight: 400;
-  opacity: 0.75;
-  max-width: 700px;
-  line-height: 1.5;
+  opacity: 0.85;
+  max-width: 1000px;
+  line-height: 1.6;
+  padding: 0 10px;
 }
 
-/* Scroll Indicator - Đưa về đáy màn hình */
+/* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 50px;
+  bottom: clamp(20px, 5vh, 50px);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   z-index: 10;
   cursor: pointer;
-  opacity: 0;
-  animation: fadeInContent 1s ease forwards 2s; /* Hiện sau cùng */
 }
 
 .scroll-text {
-  font-size: 11px;
-  letter-spacing: 4px;
+  font-size: 10px;
+  letter-spacing: 3px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+}
+
+/* Responsive cho màn hình cực nhỏ (Mobile dọc) */
+@media (max-width: 480px) {
+  .hero-container {
+    transform: translateY(-10px);
+    padding: 0 15px;
+  }
+
+  .hero-years {
+    letter-spacing: 0px; /* Giảm letter spacing để tránh tràn dòng */
+  }
+
+  .scroll-text {
+    display: none; /* Ẩn chữ trên mobile cho gọn, chỉ giữ lại mũi tên */
+  }
+}
+
+/* Transitions mượt mà khi cuộn (Giữ nguyên logic cũ của bạn) */
+.hero-star,
+.hero-years,
+.hero-quote-box,
+.scroll-indicator {
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  will-change: opacity, transform;
+}
+
+/* Animations (Giữ nguyên logic của bạn) */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-20px);
+    filter: blur(0);
+  }
+}
+
+@keyframes starPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.7));
+  }
+}
+
+@keyframes bounceArrow {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
 }
 
 .scroll-arrow {
   animation: bounceArrow 2s infinite;
-}
-
-.hero-star, .hero-sub-top, .hero-years, .hero-main-title, .hero-quote-box, .scroll-indicator {
-  /* Thêm transition để mượt mà khi cuộn */
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-  will-change: opacity; /* Tối ưu hóa hiệu năng render */
-}
-
-/* Thêm hiệu ứng đẩy nhẹ lên khi biến mất để tạo cảm giác cinematic */
-
-
-/* Đảm bảo nội dung luôn hiển thị đẹp với phông Merriweather đã cài đặt */
-.hero-years {
-  font-family: var(--font-main); /* Sử dụng biến từ global.css */
-  font-weight: 900;
-  /* ... */
-}
-/* Animations */
-@keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(10px); filter: blur(10px); }
-  to { opacity: 1; transform: translateY(-20px); filter: blur(0); }
-}
-
-@keyframes fadeInContent {
-  to { opacity: 1; }
-}
-
-@keyframes starPulse {
-  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3)); }
-  50% { transform: scale(1.1); filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.7)); }
-}
-
-@keyframes bounceArrow {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-8px); }
-  60% { transform: translateY(-4px); }
 }

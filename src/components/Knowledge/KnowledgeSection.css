@@ -1,6 +1,6 @@
 /* --- Container Chính --- */
 .knowledge-section {
-  padding: 120px 20px;
+  padding: 80px 20px;
   background: radial-gradient(circle at center, #1a0505 0%, #050505 100%);
   color: #fff;
   display: flex;
@@ -46,9 +46,16 @@
 }
 
 .section-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: 55px;
   line-height: 1.4;
   font-weight: 900;
+  margin-bottom: 25px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+.section-desc {
+  font-size: 40px;
+  line-height: 1.4;
+  font-weight: 600;
   margin-bottom: 25px;
   text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
@@ -61,12 +68,26 @@
 .section-subtitle {
   font-style: italic;
   opacity: 0.6;
-  font-size: 17px;
-  max-width: 750px;
+  font-size: 25px;
+  max-width: 1000px;
   margin: 0 auto;
   line-height: 1.6;
 }
-
+.section-subtitle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px; /* Độ dài của đường kẻ ngang */
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  ); /* Hiệu ứng mờ dần về 2 đầu */
+}
 /* --- Accordion List --- */
 .accordion-list {
   width: 100%;
@@ -139,7 +160,7 @@
 }
 
 .accordion-item.active .accordion-content {
-  max-height: 500px;
+  max-height: 2000px;
 }
 
 .content-inner {
@@ -203,8 +224,12 @@
 
 /* --- Responsive --- */
 @media (max-width: 900px) {
-  .content-inner { padding: 0 30px 30px; }
-  .ms-year { font-size: 36px; }
+  .content-inner {
+    padding: 0 30px 30px;
+  }
+  .ms-year {
+    font-size: 36px;
+  }
 }
 
 @media (max-width: 600px) {

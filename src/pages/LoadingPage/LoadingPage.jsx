@@ -1,74 +1,73 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
+import { Volume2, VolumeX } from "lucide-react";
 import "./LoadingPage.css";
 
 const LoadingPage = ({ onFinished }) => {
   const [progress, setProgress] = useState(0);
+  const [isSoundOn, setIsSoundOn] = useState(false);
+  const videoRef = useRef(null);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(timer);
-          setTimeout(() => onFinished(), 1000);
-          return 100;
-        }
-        return prev + 1;
-      });
-    }, 50); 
-    return () => clearInterval(timer);
-  }, [onFinished]);
+  const handleTimeUpdate = () => {
+    const video = videoRef.current;
+    if (!video || !video.duration) return;
 
-  const renderContent = () => {
-    if (progress < 40) {
-      return (
-        <div className="fade-out-in" key="msg1">
-          <h2 className="main-quote big-text">
-            <span className="quote-mark">"</span>Lịch sử không chỉ để nhớ<span className="quote-mark">"</span>
-          </h2>
-        </div>
-      );
-    } else if (progress < 80) {
-      return (
-        <div className="fade-out-in" key="msg2">
-          <h2 className="sub-quote medium-text">
-            mà để <span className="highlight-red">TỰ HÀO</span> — để <span className="highlight-gold">TIẾP BƯỚC...</span>
-          </h2>
-        </div>
-      );
+    const percent = Math.floor(
+      (video.currentTime / video.duration) * 100
+    );
+    setProgress(percent);
+  };
+
+  const handleVideoEnd = () => {
+    setProgress(100);
+    onFinished();
+  };
+
+  const toggleSound = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.muted) {
+      video.muted = false;
+      video.volume = 1;
+      video.play();
+      setIsSoundOn(true);
     } else {
-      return (
-        <div className="fade-out-in" key="msg3">
-          <h1 className="topic-title big-text highlight-gold">Tư tưởng Hồ Chí Minh</h1>
-          <p className="topic-sub">Về Độc lập dân tộc & Chủ nghĩa xã hội</p>
-        </div>
-      );
+      video.muted = true;
+      setIsSoundOn(false);
     }
   };
 
   return (
     <div className="historical-loading">
-      <video autoPlay muted loop playsInline className="background-video">
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        playsInline
+        className="background-video"
+        onTimeUpdate={handleTimeUpdate}
+        onEnded={handleVideoEnd}
+      >
         <source src="/background.mp4" type="video/mp4" />
-        {/* Bạn thay đường dẫn video của bạn vào src ở trên */}
       </video>
 
-      {/* Lớp phủ tối để làm nổi bật chữ trên nền video */}
       <div className="video-overlay"></div>
-      {/* 4 Góc viền */}
 
-
-      <div className="dust-overlay"></div>
-
-      {/* Vùng nội dung chính giữa */}
-      <div className="center-stage">
-        {renderContent()}
-      </div>
+      {/* 🔊 Nút bật / tắt âm thanh (LUÔN HIỆN) */}
+      <button className="sound-toggle" onClick={toggleSound}>
+        {isSoundOn ? <Volume2 size={18} /> : <VolumeX size={18} />}
+      </button>
 
       <div className="footer-loading">
         <div className="loading-bar-container">
-          <div className="loading-bar-fill" style={{ width: `${progress}%` }}></div>
+          <div
+            className="loading-bar-fill"
+            style={{ width: `${progress}%` }}
+          />
         </div>
-        <p className="loading-text">ĐANG TẢI DỮ LIỆU LỊCH SỬ... {progress}%</p>
+        <p className="loading-text">
+          ĐANG TẢI DỮ LIỆU ... {progress}%
+        </p>
       </div>
     </div>
   );

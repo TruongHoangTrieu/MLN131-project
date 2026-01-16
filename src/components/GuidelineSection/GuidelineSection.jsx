@@ -1,7 +1,7 @@
 import React from "react";
 import { 
-  Flag, Flame, Users, Swords, Shield, 
-  ArrowRightCircle, Star, CheckCircle2 
+  Flag, Star, CheckCircle2, ArrowRightCircle,
+  Map, Banknote, Scale, Landmark
 } from "lucide-react";
 import "./GuidelineSection.css";
 
@@ -9,119 +9,67 @@ const GuidelineSection = () => {
   const guidelines = [
     {
       id: "01",
-      title: "Đường lối chiến lược",
-      icon: <Flag size={24} />,
-      quote: "Miền Bắc là nền tảng, miền Nam là tiền tuyến.",
-      shortDesc: "Xác định nhiệm vụ cách mạng XHCN ở miền Bắc và Cách mạng dân tộc dân chủ ở miền Nam.",
+      title: "Chương trình 135",
+      icon: <Map size={24} />,
+      quote: "Phát triển bền vững vùng đồng bào dân tộc thiểu số.",
+      shortDesc: "Tập trung phát triển kinh tế – xã hội các xã đặc biệt khó khăn miền núi, vùng sâu, vùng xa.",
       details: [
-        "Tiến hành đồng thời hai chiến lược cách mạng.",
-        "Mối quan hệ mật thiết, tác động qua lại lẫn nhau.",
-        "Miền Bắc là hậu phương lớn, quyết định nhất.",
-        "Miền Nam là tiền tuyến lớn, quyết định trực tiếp."
+        "Đầu tư cơ sở hạ tầng thiết yếu (Điện, đường, trường, trạm).",
+        "Hỗ trợ chuyển đổi cơ cấu cây trồng, vật nuôi năng suất cao.",
+        "Nâng cao trình độ dân trí và đào tạo cán bộ tại chỗ.",
+        "Xóa bỏ hủ tục, gìn giữ bản sắc văn hóa dân tộc."
       ],
       color: "#ff4d4d", // Đỏ
     },
     {
       id: "02",
-      title: "Chuyển hướng 1959",
-      icon: <Flame size={24} />,
-      quote: "Con đường phát triển cơ bản là khởi nghĩa.",
-      shortDesc: "Nghị quyết 15: Chuyển từ đấu tranh chính trị sang kết hợp đấu tranh vũ trang.",
+      title: "Tín dụng Chính sách",
+      icon: <Banknote size={24} />,
+      quote: "Trao 'cần câu' thay vì 'con cá' để người dân thoát nghèo.",
+      shortDesc: "Hệ thống ưu đãi cho hộ nghèo, cận nghèo vay vốn sản xuất thông qua NHCSXH.",
       details: [
-        "Ra đời trong bối cảnh Mỹ - Diệm đàn áp dã man.",
-        "Khởi đầu cho phong trào Đồng Khởi (1959-1960).",
-        "Hình thành mặt trận dân tộc giải phóng miền Nam.",
-        "Bước ngoặt quan trọng của cách mạng miền Nam."
+        "Cho vay vốn ưu đãi với lãi suất thấp, không cần tài sản thế chấp.",
+        "Tạo việc làm tại địa phương thông qua các dự án sản xuất.",
+        "Hỗ trợ học sinh, sinh viên có hoàn cảnh khó khăn vay vốn học tập.",
+        "Đảm bảo an sinh xã hội thông qua các quỹ tiết kiệm cộng đồng."
       ],
-      color: "#f59e0b", // Cam vàng
+      color: "#ffd700", // Vàng
     },
     {
       id: "03",
-      title: "Chi viện Bắc - Nam",
-      icon: <Users size={24} />,
-      quote: "Thóc không thiếu một cân, quân không thiếu một người.",
-      shortDesc: "Tổ chức tuyến đường vận tải chiến lược huyền thoại trên bộ và trên biển.",
+      title: "Tăng trưởng & Công bằng",
+      icon: <Scale size={24} />,
+      quote: "Không hy sinh tiến bộ và công bằng xã hội để chạy theo kinh tế.",
+      shortDesc: "Khẳng định cam kết của Việt Nam về một mô hình tăng trưởng hài hòa và bền vững.",
       details: [
-        "Mở đường Trường Sơn (Hồ Chí Minh) năm 1959.",
-        "Mở đường Hồ Chí Minh trên biển.",
-        "Vận chuyển hàng triệu tấn vũ khí, lương thực.",
-        "Đưa hàng vạn cán bộ, chiến sĩ vào Nam chiến đấu."
+        "Phân phối thành quả phát triển hài hòa giữa các tầng lớp xã hội.",
+        "Thu hẹp khoảng cách giàu nghèo giữa thành thị và nông thôn.",
+        "Coi con người là trung tâm, là mục tiêu của sự phát triển.",
+        "Gắn tăng trưởng kinh tế với bảo vệ môi trường và an sinh xã hội."
       ],
-      color: "#9ca3af", // Xám bạc
-    },
-    {
-      id: "04",
-      title: "Nghệ thuật quân sự",
-      icon: <Swords size={24} />,
-      quote: "Bám thắt lưng địch mà đánh.",
-      shortDesc: "Sáng tạo phương châm đấu tranh 'Ba mũi giáp công' độc đáo.",
-      details: [
-        "Kết hợp đấu tranh: Quân sự, Chính trị, Binh vận.",
-        "Đánh địch trên cả 3 vùng chiến lược: Rừng núi, Nông thôn, Đô thị.",
-        "Chiến tranh du kích kết hợp chiến tranh chính quy.",
-        "Tiêu biểu: Chiến thắng Ấp Bắc, Bình Giã..."
-      ],
-      color: "#ef4444", // Đỏ tươi
-    },
-    {
-      id: "05",
-      title: "Đại đoàn kết",
-      icon: <Shield size={24} />,
-      quote: "Đoàn kết, đoàn kết, đại đoàn kết.",
-      shortDesc: "Tập hợp lực lượng toàn dân tộc trong các mặt trận thống nhất rộng rãi.",
-      details: [
-        "Thành lập Mặt trận Tổ quốc Việt Nam (1955).",
-        "Thành lập Mặt trận Dân tộc Giải phóng miền Nam VN (1960).",
-        "Huy động sức mạnh của mọi tầng lớp nhân dân.",
-        "Tranh thủ sự ủng hộ quốc tế."
-      ],
-      color: "#3b82f6", // Xanh dương
-    },
-    {
-      id: "06", // Thêm một thẻ cho đủ bộ 6 (cân đối lưới 3x2)
-      title: "Xây dựng Đảng",
-      icon: <Star size={24} />,
-      quote: "Đảng lãnh đạo là nhân tố quyết định thắng lợi.",
-      shortDesc: "Tăng cường công tác xây dựng, chỉnh đốn Đảng về chính trị, tư tưởng và tổ chức.",
-      details: [
-        "Tổ chức Đại hội Đảng toàn quốc lần thứ III (1960).",
-        "Hoàn thiện đường lối kháng chiến chống Mỹ.",
-        "Nâng cao năng lực lãnh đạo và sức chiến đấu của Đảng.",
-        "Đào tạo đội ngũ cán bộ vừa 'hồng' vừa 'chuyên'."
-      ],
-      color: "#8b5cf6", // Tím
+      color: "#00c6ff", // Xanh dương
     },
   ];
 
   return (
     <section className="guideline-section">
-      {/* Header giữ nguyên sự trang trọng */}
       <header className="guideline-header">
-        <div className="header-badge">
-          <Star size={12} fill="#ffd700" /> VAI TRÒ LÃNH ĐẠO
-        </div>
         <h2 className="header-main-title">
-          Kim Chỉ Nam <br />
-          <span className="highlight-gold">Cho Cách Mạng</span>
+          Minh chứng thực tiễn tính <span className="highlight-gold">Định hướng XHCN</span>
         </h2>
         <div className="header-divider">
           <Star size={20} fill="#ff4d4d" stroke="none" />
         </div>
-        <p className="header-subtitle">
-          (Di chuột vào các thẻ để xem nội dung chi tiết)
-        </p>
+        <p className="header-subtitle">Di chuột vào các thẻ để xem nội dung chi tiết của từng chính sách</p>
       </header>
 
-      {/* Grid thẻ vuông có hiệu ứng lật */}
       <div className="guideline-grid">
         {guidelines.map((item) => (
-          // Container chính tạo không gian 3D
           <div 
             key={item.id} 
             className="flip-card-container"
             style={{"--card-theme": item.color}}
           >
-            {/* Lớp bên trong thực hiện việc xoay */}
             <div className="flip-card-inner">
               
               {/* --- MẶT TRƯỚC --- */}
@@ -153,7 +101,7 @@ const GuidelineSection = () => {
                 </ul>
                 <div className="back-footer">
                   <Star size={20} fill={item.color} stroke="none" />
-                  Giai đoạn 1954 - 1965
+                  Chính sách An sinh xã hội
                 </div>
               </div>
 

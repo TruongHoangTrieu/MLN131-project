@@ -49,8 +49,7 @@
 /* --- Grid System --- */
 .guideline-grid {
   display: grid;
-  /* Lưới 3 cột cho màn hình lớn */
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr); /* Chia 3 cột đều nhau */
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;

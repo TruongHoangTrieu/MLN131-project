@@ -1,24 +1,25 @@
 import React, { useState } from "react";
-import { 
-  BookOpen, 
-  Target, 
-  Factory, 
-  Swords, 
-  Landmark, 
-  Plus, 
-  X 
-} from "lucide-react";
+import { Globe, Star, Plus, X } from "lucide-react";
 import "./KnowledgeSection.css";
+import HistoryContent from "../HistoryContent/HistoryContent";
+import RevolutionPhase from "../RevolutionPhase/RevolutionPhase";
 
 const KnowledgeSection = () => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const knowledgeData = [
-    { id: 1, title: "Bối cảnh lịch sử", icon: <BookOpen size={20} /> },
-    { id: 2, title: "I. Đường lối chung và vai trò của mỗi miền", icon: <Target size={20} /> },
-    { id: 3, title: "II. Xây dựng CNXH ở miền Bắc (1961-1965)", icon: <Factory size={20} /> },
-    { id: 4, title: "III. Cách mạng miền Nam - 'Chiến tranh đặc biệt'", icon: <Swords size={20} /> },
-    { id: 5, title: "IV. Ý nghĩa lịch sử", icon: <Landmark size={20} /> },
+    {
+      id: 1,
+      title: "I. Kinh Tế Thị Trường",
+      icon: <Globe size={20} />,
+      content: <HistoryContent />,
+    },
+    {
+      id: 2,
+      title: "II. Chủ Nghĩa Xã Hội",
+      icon: <Star size={20} />,
+      content: <RevolutionPhase />
+    },
   ];
 
   const toggleAccordion = (index) => {
@@ -36,13 +37,12 @@ const KnowledgeSection = () => {
           <div className="section-badge">
             <span>TỔNG HỢP KIẾN THỨC</span>
           </div>
-          <h2 className="section-title">
-            Xây dựng CNXH ở miền Bắc, phát triển thế tiến công <br />
-            <span className="highlight-gold">của cách mạng miền Nam (1961-1965)</span>
+          <h2 className="section-title ">
+            Kinh Tế Thị Trường Định Hướng <br /> Xã Hội Chủ Nghĩa <br />
           </h2>
+          <p className="section-desc highlight-gold">Mô hình kinh tế tổng quát trong thời kỳ quá độ lên CNXH</p>
           <p className="section-subtitle">
-            Giai đoạn lịch sử quan trọng, đặt nền móng vững chắc cho sự nghiệp
-            giải phóng miền Nam, thống nhất đất nước.
+            Giai đoạn phát triển đột phá mang tính lịch sử, vận dụng sáng tạo quy luật thị trường vào thực tiễn Việt Nam nhằm mục tiêu: Dân giàu, nước mạnh, dân chủ, công bằng, văn minh.
           </p>
         </div>
 
@@ -51,7 +51,9 @@ const KnowledgeSection = () => {
           {knowledgeData.map((item, index) => (
             <div
               key={item.id}
-              className={`accordion-item ${activeIndex === index ? "active" : ""}`}
+              className={`accordion-item ${
+                activeIndex === index ? "active" : ""
+              }`}
               onClick={() => toggleAccordion(index)}
             >
               <div className="accordion-header">
@@ -66,27 +68,9 @@ const KnowledgeSection = () => {
 
               <div className="accordion-content">
                 <div className="content-inner">
-                  <p>
-                    Nội dung chi tiết về <strong>{item.title}</strong> đang được
-                    tổng hợp từ nguồn tư liệu chính thống của Đảng và Nhà nước...
-                  </p>
+                  {item.content}
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Milestones Bar */}
-        <div className="knowledge-milestones">
-          {[
-            { year: "1960", desc: "ĐẠI HỘI III" },
-            { year: "1961", desc: "KẾ HOẠCH 5 NĂM" },
-            { year: "1963", desc: "CHIẾN THẮNG ẤP BẮC" },
-            { year: "1965", desc: "PHÁ SẢN CTĐB" },
-          ].map((m, i) => (
-            <div key={i} className="milestone-item">
-              <span className="ms-year">{m.year}</span>
-              <span className="ms-desc">{m.desc}</span>
             </div>
           ))}
         </div>

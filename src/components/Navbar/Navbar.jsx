@@ -29,20 +29,23 @@ const Navbar = () => {
             <span className="vn-text">VN</span>
           </div>
           <div className="brand-titles">
-            <span className="brand-year">1954 - 1965</span>
-            <span className="brand-sub">ĐẢNG LÃNH ĐẠO</span>
+            <span className="brand-year">KINH TẾ CHÍNH TRỊ</span>
           </div>
         </div>
 
         <ul className="nav-menu">
-          <li><a href="#trang-chu">TRANG CHỦ</a></li>
-          <li><a href="#kien-thuc">KIẾN THỨC</a></li>
-          <li><a href="#dong-thoi-gian">DÒNG THỜI GIAN</a></li>
-          <li><a href="#chi-vien">CHI VIỆN</a></li>
-          <li><a href="#hai-mien">HAI MIỀN</a></li>
-          <li><a href="#lanh-dao">LÃNH ĐẠO</a></li>
-          <li><a href="#ban-do">BẢN ĐỒ</a></li>
-          <li><a href="#trac-nghiem">TRẮC NGHIỆM</a></li>
+          <li>
+            <a href="#trang-chu">TTrang Chủ</a>
+          </li> 
+          <li>
+            <a href="#kien-thuc">Lý Thuyết</a>
+          </li>
+          <li>
+            <a href="#dong-thoi-gian">Ví Dụ Thực Tiễn</a>
+          </li>
+          <li>
+            <a href="#dong-thoi-gian">So Sánh</a>
+          </li>
         </ul>
       </div>
       <div className="nav-underline"></div>

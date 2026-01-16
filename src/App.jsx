@@ -4,9 +4,9 @@ import Navbar from "./components/Navbar/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
 import KnowledgeSection from "./components/Knowledge/KnowledgeSection";
 import HistoryTimeline from "./components/HistoryTimeline/HistoryTimeline";
-import SupportSection from "./components/SupportSection/SupportSection";
 import GuidelineSection from "./components/GuidelineSection/GuidelineSection";
 import FooterSection from "./components/FooterSection/FooterSection";
+import ComparisonLayout from "./components/ComparisonLayout/ComparisonLayout";
 
 function App() {
   // Trạng thái để kiểm soát việc hiển thị Loading hay Nội dung chính
@@ -26,7 +26,7 @@ function App() {
             <HeroSection />
             <KnowledgeSection />
             <HistoryTimeline />
-            <SupportSection />
+            <ComparisonLayout />
             <GuidelineSection />
             <FooterSection />
             {/* Bạn có thể thêm các Section khác ở đây */}
