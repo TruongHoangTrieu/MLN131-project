@@ -29,7 +29,7 @@
 }
 
 .header-main-title {
-  font-family: 'Merriweather', serif;
+
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
   line-height: 1.1;

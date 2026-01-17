@@ -1,31 +1,33 @@
-/* Container chính */
+/* ================= CONTAINER CHÍNH ================= */
 .history-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  background-color: #121212; /* Nền tối sâu */
+  gap: 36px;
+  background-color: #121212;
   color: #e0e0e0;
-
 }
 
-/* Từng khối section */
+/* ================= SECTION ================= */
 .h-section {
-  padding: 20px;
-  border-radius: 4px;
+  padding: 28px 30px;
+  border-radius: 6px;
   border: 1px solid #2a2a2a;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
 }
 
-/* Tiêu đề mục */
+/* ================= TIÊU ĐỀ ================= */
 .h-title {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 15px;
+  gap: 12px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 20px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
 .title-red {
@@ -38,13 +40,15 @@
   color: #ffb300;
 }
 
+/* ================= MÔ TẢ ================= */
 .h-desc {
-  font-size: 0.95rem;
-  margin-bottom: 12px;
-  color: #bbbbbb;
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+  color: #cfcfcf;
+  line-height: 1.8;
 }
 
-/* Danh sách mũi tên đỏ (Mục I) */
+/* ================= DANH SÁCH ================= */
 .h-list {
   list-style: none;
   padding-left: 5px;
@@ -52,150 +56,172 @@
 
 .h-list li {
   position: relative;
-  padding-left: 25px;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
-  color: #d0d0d0;
+  padding-left: 28px;
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+  color: #dddddd;
+  line-height: 1.8;
 }
 
 .h-list li::before {
   content: "➔";
   position: absolute;
   left: 0;
+  top: 2px;
   color: #ff4d4d;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
 }
 
-/* Phương châm (Mục II) */
+/* ================= PHƯƠNG CHÂM ================= */
 .h-motto {
-  font-size: 0.95rem;
-  margin-bottom: 20px;
+  font-size: 1.05rem;
+  margin-bottom: 24px;
+  line-height: 1.8;
 }
 
 .h-motto span {
   color: #ffb300;
-  font-weight: 700;
+  font-weight: 800;
 }
 
-/* Grid 3 cột (Mục II) */
+/* ================= GRID ƯU – HẠN ================= */
 .h-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  gap: 24px;
 }
 
 .h-card {
   background: #1a1a1a;
   border: 1px solid #333;
-  padding: 15px;
-  border-radius: 4px;
+  padding: 22px 24px;
+  border-radius: 6px;
 }
 
+/* ================= CARD HEAD ================= */
 .card-head {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.85rem;
+  gap: 10px;
+  font-size: 1rem;
   font-weight: 800;
-  color: #818cf8; /* Màu xanh tím nhẹ cho tiêu đề card */
-  margin-bottom: 10px;
+  color: #818cf8;
+  margin-bottom: 14px;
 }
 
+/* ================= CARD LIST ================= */
 .h-card ul {
   list-style: none;
   padding: 0;
 }
 
 .h-card ul li {
-  font-size: 0.85rem;
-  color: #a0a0a0;
-  margin-bottom: 5px;
-  padding-left: 10px;
+  font-size: 1rem;
+  color: #cccccc;
+  margin-bottom: 10px;
+  padding-left: 14px;
   position: relative;
+  line-height: 1.7;
 }
 
 .h-card ul li::before {
-  content: "-";
+  content: "–";
   position: absolute;
   left: 0;
+  color: #888;
 }
 
-/* Timeline Chiến thắng (Mục III) */
+/* ================= TIMELINE ================= */
 .v-timeline {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 22px;
 }
 
 .v-item {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 26px;
   background: #181818;
-  padding: 15px;
-  border-radius: 6px;
-  border-left: 3px solid transparent;
-  transition: transform 0.2s;
+  padding: 22px;
+  border-radius: 8px;
+  border-left: 4px solid transparent;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .v-item:hover {
-  transform: translateX(5px);
+  transform: translateX(6px);
   background: #202020;
 }
 
-/* Badge tròn chứa ngày tháng */
+/* ================= BADGE ================= */
 .v-badge {
-  min-width: 65px;
-  height: 65px;
+  min-width: 72px;
+  height: 72px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 800;
   line-height: 1.2;
   text-align: center;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.12);
 }
 
 .badge-red {
   background: #4a0e0e;
-  color: #ff8080;
+  color: #ff9b9b;
   border-color: #7f1d1d;
 }
 .badge-orange {
   background: #4a270e;
-  color: #ffb380;
+  color: #ffcc9b;
   border-color: #7c2d12;
 }
 .badge-purple {
   background: #2e104a;
-  color: #d180ff;
+  color: #e0b3ff;
   border-color: #4c1d95;
 }
 
+/* ================= TIMELINE TEXT ================= */
 .v-text h5 {
-  margin: 0 0 4px 0;
-  font-size: 1rem;
+  margin: 0 0 8px 0;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: #ffffff;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.6px;
 }
 
 .v-text p {
   margin: 0;
-  font-size: 0.85rem;
-  color: #888888;
-  line-height: 1.4;
+  font-size: 1rem;
+  color: #aaaaaa;
+  line-height: 1.7;
 }
 
-/* Responsive cho mobile */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
+  .history-container {
+    padding: 28px 16px;
+  }
+
+  .h-title {
+    font-size: 1.15rem;
+  }
+
   .h-grid {
     grid-template-columns: 1fr;
   }
+
   .v-item {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .v-badge {
+    margin-bottom: 10px;
   }
 }

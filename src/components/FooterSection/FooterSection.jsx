@@ -6,7 +6,7 @@ const FooterSection = () => {
   return (
     <footer className="footer-section">
       <div className="footer-texture-overlay"></div>
-      
+
       <div className="footer-container">
         {/* Biểu tượng Ngôi sao vàng chính giữa */}
         <div className="footer-logo">
@@ -17,30 +17,18 @@ const FooterSection = () => {
 
         {/* Tiêu đề chính */}
         <div className="footer-content">
-          <h2 className="footer-main-title">
-            LỊCH SỬ ĐẢNG CỘNG SẢN VIỆT NAM
-          </h2>
-          <p className="footer-meta">
-            DỰ ÁN THUYẾT TRÌNH GIÁO DỤC • 2025
-          </p>
+          <h2 className="footer-main-title">CHỦ NGHĨA XÃ HỘI KHOA HỌC</h2>
+          <p className="footer-meta">DỰ ÁN THUYẾT TRÌNH GIÁO DỤC • 2026</p>
         </div>
 
         {/* Thanh ngăn cách trang trí */}
         <div className="footer-divider"></div>
 
         {/* Các liên kết bổ sung (Tùy chọn để thêm tính tương tác) */}
-        <div className="footer-links">
-          <div className="link-item">
-            <Mail size={16} /> <span>LIÊN HỆ TƯ LIỆU</span>
-          </div>
-          <div className="link-item">
-            <Share2 size={16} /> <span>CHIA SẺ DỰ ÁN</span>
-          </div>
-        </div>
 
         {/* Bản quyền */}
         <div className="footer-copyright">
-          <Copyright size={12} /> 2025 Bản quyền thuộc về Nhóm thực hiện dự án
+          <Copyright size={12} /> 2026 Bản quyền thuộc về Nhóm thực hiện dự án
         </div>
       </div>
     </footer>

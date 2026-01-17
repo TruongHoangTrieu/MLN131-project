@@ -57,7 +57,6 @@
 
 /* Main Title */
 .hero-years {
-  font-family: var(--font-main);
   /* Tự động scale từ 24px đến 52px tùy kích thước màn hình */
   font-size: clamp(1.5rem, 4.5vw, 3.25rem);
   font-weight: 900;
