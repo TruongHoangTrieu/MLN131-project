@@ -61,10 +61,10 @@
   bottom: 0;
   width: 2px; /* Độ dầy của line */
   background: linear-gradient(
-    to bottom, 
-    transparent, 
-    rgba(255, 215, 0, 0.4) 15%, /* Vàng gold mờ */
-    rgba(255, 215, 0, 0.4) 85%, 
+    to bottom,
+    transparent,
+    rgba(255, 215, 0, 0.4) 15%,
+    /* Vàng gold mờ */ rgba(255, 215, 0, 0.4) 85%,
     transparent
   );
   transform: translateX(-50%);
@@ -121,10 +121,10 @@
 /* Card */
 .timeline-card {
   width: 90%;
-  max-width: 480px;
+  max-width: 500px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 35px;
+  padding: 10px;
   position: relative;
   transition: all 0.4s ease;
   overflow: hidden;
@@ -152,7 +152,7 @@
 }
 
 .card-title {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 15px;
 }

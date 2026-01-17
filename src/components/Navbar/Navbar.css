@@ -1,7 +1,8 @@
+/* ================= NAVBAR ================= */
+
 .history-navbar {
   width: 100%;
-  /* THAY ĐỔI: Mặc định là trong suốt */
-  background-color: transparent; 
+  background-color: transparent;
   height: 90px;
   position: fixed;
   top: 0;
@@ -9,14 +10,17 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* THÊM: Chuyển động mượt khi đổi màu và chiều cao */
-  transition: all 0.4s ease-in-out; 
+  transition: all 0.4s ease-in-out;
 }
+
 .history-navbar.scrolled {
-  background-color: #000; /* Chuyển sang màu đen */
-  height: 75px; /* Có thể thu nhỏ nhẹ chiều cao cho hiện đại */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Thêm bóng đổ để tách biệt với nội dung */
+  background-color: #000;
+  height: 75px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
+
+/* ================= CONTAINER ================= */
+
 .nav-container {
   max-width: 1400px;
   width: 95%;
@@ -26,18 +30,20 @@
   justify-content: space-between;
 }
 
-/* --- LOGO STYLE --- */
+/* ================= LOGO ================= */
+
 .nav-brand {
   display: flex;
   align-items: center;
   gap: 15px;
+  cursor: pointer;
 }
 
 .logo-vn-circle {
   width: 55px;
   height: 55px;
-  background-color: #b22222; /* Màu đỏ đô */
-  border: 3px solid #ffd700; /* Viền vàng gold */
+  background-color: #b22222;
+  border: 3px solid #ffd700;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -49,7 +55,6 @@
   color: #ffd700;
   font-weight: bold;
   font-size: 20px;
-  
 }
 
 .brand-titles {
@@ -62,7 +67,6 @@
   color: #fff;
   font-size: 22px;
   font-weight: 700;
-  
 }
 
 .brand-sub {
@@ -72,50 +76,75 @@
   font-weight: 500;
 }
 
-/* --- MENU LINKS --- */
+/* ================= MENU ================= */
+
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 25px; /* Khoảng cách giữa các mục */
+  gap: 25px;
   margin: 0;
   padding: 0;
 }
 
-.nav-menu li a {
-  text-decoration: none;
-  color: #d1d1d1; /* Màu trắng xám */
+/* 👉 STYLE CHO LI (QUAN TRỌNG) */
+.nav-menu li {
+  color: #d1d1d1;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
+  cursor: pointer;
   padding: 5px 0;
+  transition: all 0.3s ease;
 }
 
-/* Hiệu ứng khi hover: chữ chuyển vàng và sáng nhẹ */
-.nav-menu li a:hover {
+.nav-menu li:hover {
   color: #ffd700;
   text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
-/* Đường kẻ trang trí phía dưới */
+/* 👉 Quiz dùng Link */
+.quiz-link {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* ================= UNDERLINE ================= */
+
 .nav-underline {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.4), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 215, 0, 0.4),
+    transparent
+  );
   position: absolute;
   bottom: 0;
-  opacity: 0; /* Mặc định ẩn */
+  opacity: 0;
   transition: opacity 0.4s ease;
 }
+
 .history-navbar.scrolled .nav-underline {
-  opacity: 1; /* Hiện lại khi đã cuộn */
+  opacity: 1;
 }
-/* Tương thích cho màn hình nhỏ */
+
+/* ================= FIX SCROLL ================= */
+
+section {
+  scroll-margin-top: 90px;
+}
+
+/* ================= RESPONSIVE ================= */
+
 @media (max-width: 1100px) {
   .nav-menu {
     gap: 15px;
   }
-  .nav-menu li a {
-    font-size: 12px;
+
+  .nav-menu li {
+    font-size: 14px;
   }
 }
